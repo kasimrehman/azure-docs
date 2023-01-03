@@ -204,7 +204,8 @@ Yes. You can have multiple ExpressRoute circuits with the same or different serv
 
 The basic steps are:
 
-* Establish an ExpressRoute circuit and have the service provider enable it.
+* Establish an ExpressRoute circuit and haCan I've one virtual network connected to more than one ExpressRoute circuit?
+Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. the service provider enable it.
 * You, or the provider, must configure the BGP peering(s).
 * Link the virtual network to the ExpressRoute circuit.
 
@@ -234,7 +235,7 @@ For more information, see [Sharing an ExpressRoute circuit across multiple subsc
 
 No. From a routing perspective, all virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and aren't isolated from each other. If you need route isolation, you need to create a separate ExpressRoute circuit.
 
-### Can I've one virtual network connected to more than one ExpressRoute circuit?
+### Can I have one virtual network connected to more than one ExpressRoute circuit?
 
 Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. 
 
