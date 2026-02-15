@@ -197,18 +197,6 @@ For guidance on disabling MFA, see the following:
 - [Add exclusions for service principals of Azure resources](../../active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa.md#user-exclusions)
 - [Create a conditional access policy](../../active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa.md#create-a-conditional-access-policy)
 
-## Assign share-level permissions
-
-When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
-
-To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md). Cloud-only identities can only be assigned a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated identities.
-
-## Configure directory and file-level permissions
-
-Once share-level permissions are in place, you can assign Windows ACLs (directory/file-level permissions) to the user or group. **For hybrid identities, this requires using a device with unimpeded network connectivity to an on-premises AD**.
-
-To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
-
 ## Configure the clients to retrieve Kerberos tickets
 
 Enable the Microsoft Entra Kerberos functionality on the client machine(s) you want to mount/use Azure File shares from. You must do this on every client on which Azure Files will be used.
@@ -246,6 +234,18 @@ Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
 > [!IMPORTANT]
 > Once this change is applied, the client(s) won't be able to connect to storage accounts that are configured for on-premises AD DS integration without configuring Kerberos realm mappings. If you want the client(s) to be able to connect to storage accounts configured for AD DS as well as storage accounts configured for Microsoft Entra Kerberos, follow the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds).
+
+## Assign share-level permissions
+
+When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
+
+To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md). Cloud-only identities can only be assigned a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated identities.
+
+## Configure directory and file-level permissions
+
+Once share-level permissions are in place, you can assign Windows ACLs (directory/file-level permissions) to the user or group. **For hybrid identities, this requires using a device with unimpeded network connectivity to an on-premises AD**.
+
+To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
 
 ### Configure coexistence with storage accounts using on-premises AD DS
 
